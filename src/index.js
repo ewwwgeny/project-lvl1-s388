@@ -1,40 +1,40 @@
 import readlineSync from 'readline-sync';
 
-let nickName = 'John Doe';
-
 // welcome and greeting messages
-export const welcome = () => console.log('Welcome to the Brain Games!');
-export const greeting = () => {
+export const sayWelcome = () => console.log('Welcome to the Brain Games!');
+export const greetUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  nickName = userName;
+  return userName;
 };
 
-// games start messages
-const isEvenGameStartMess = () => console.log('Answer "yes" if number even otherwise answer "no".');
+// game rules
+const getEvenGameRules = () => console.log('Answer "yes" if number even otherwise answer "no".');
+
+// common functions
+const isEven = num => num % 2 === 0;
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // games
-export const isEvenGame = () => {
-  welcome();
-  isEvenGameStartMess();
-  greeting();
-  const isEven = num => num % 2 === 0;
-  const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-  const game = (numberOfSteps) => {
-    for (let i = 1; i <= numberOfSteps; i += 1) {
-      const randomInt = getRandomNumber(1, 99);
-      console.log(`Question: ${randomInt}`);
-      const correctAnswer = isEven(randomInt) ? 'yes' : 'no';
+export const runEvenGame = () => {
+  const roundsCount = 3;
+  sayWelcome();
+  getEvenGameRules();
+  const nickName = greetUser();
+  const runGame = () => {
+    for (let i = 1; i <= roundsCount; i += 1) {
+      const questionNumber = getRandomNumber(1, 99);
+      console.log(`Question: ${questionNumber}`);
+      const correctAnswer = isEven(questionNumber) ? 'yes' : 'no';
       const userAnswer = readlineSync.question('Your answer: ');
       if (userAnswer !== correctAnswer) {
         console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}`);
-        break;
+        return null;
       }
       console.log('Correct!');
-      if (i === numberOfSteps) {
-        console.log(`Congratulations, ${nickName}!`);
-      }
     }
+    console.log(`Congratulations, ${nickName}!`);
+    return null;
   };
-  game(3);
+  runGame();
 };
