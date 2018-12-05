@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { greetUser, sayWelcome } from '..';
+import { greetUser, sayWelcome } from '../messengers';
 
 sayWelcome();
 greetUser();
