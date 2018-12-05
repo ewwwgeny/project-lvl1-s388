@@ -9,6 +9,10 @@ $ sudo npm -g install brain-games-ewwwgeny <br>
 [![asciicast](https://asciinema.org/a/xxEz8Y25wPPi30AN4Wz40R2HZ.svg)](https://asciinema.org/a/xxEz8Y25wPPi30AN4Wz40R2HZ)
 
 
-Run:<br>
+Run brain-even game:<br>
 $ brain-even <br>
 [![asciicast](https://asciinema.org/a/tFM67GJ0ZxiKjT6Gi1DsSTtmo.svg)](https://asciinema.org/a/tFM67GJ0ZxiKjT6Gi1DsSTtmo)
+
+Run brain-calc game:<br>
+$ brain-calc <br>
+[![asciicast](https://asciinema.org/a/aLCjZkvn2qqREWrmxCaq4GkKC.svg)](https://asciinema.org/a/aLCjZkvn2qqREWrmxCaq4GkKC)
