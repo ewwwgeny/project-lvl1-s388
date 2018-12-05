@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { greetUser, sayWelcome } from '../messengers';
+import { greetUser } from '..';
 
-sayWelcome();
+console.log('Welcome to the Brain Games!');
 greetUser();

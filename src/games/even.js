@@ -1,16 +1,14 @@
-import readlineSync from 'readline-sync';
-import { getRandomNumber } from '..';
-import { sayCorrect, sayWrong } from '../messengers';
+import { getRandomNumber, runGame } from '..';
+import { cons } from 'hexlet-pairs';
 
-const isEven = num => num % 2 === 0;
-const showAndGetRandomNumber = () => {
-  const questionNumber = getRandomNumber(1, 99);
-  console.log(`Question: ${questionNumber}`);
-  return questionNumber;
-};
-// playRoundEven
+// runEvenGame
 export default () => {
-  const correctAnswer = isEven(showAndGetRandomNumber()) ? 'yes' : 'no';
-  const userAnswer = readlineSync.question('Your answer: ');
-  return userAnswer === correctAnswer ? sayCorrect() : sayWrong(userAnswer, correctAnswer);
+  const gameRules = 'Answer "yes" if number even otherwise answer "no".';
+  const isEven = num => num % 2 === 0;
+  const makeQuestion = () => {
+    const question = getRandomNumber(1, 99);
+    const answer = isEven(question) ? 'yes' : 'no';
+    return cons(question, answer);
+  };
+  runGame(gameRules, makeQuestion);
 };

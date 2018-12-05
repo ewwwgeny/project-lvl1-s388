@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import runEvenGame from '../gameLaunchers/evenLauncher';
+import runEvenGame from '../games/even';
 
 runEvenGame();

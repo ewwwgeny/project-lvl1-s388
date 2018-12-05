@@ -1,30 +1,26 @@
-import readlineSync from 'readline-sync';
-import { getRandomNumber } from '..';
-import { sayCorrect, sayWrong } from '../messengers';
+import { getRandomNumber, runGame } from '..';
+import { cons } from 'hexlet-pairs';
 
 const getRandomOperation = () => {
   const possibleOps = '+-*';
   return possibleOps[Math.floor(Math.random() * possibleOps.length)];
 };
-
-const showAndCalcRandomExpr = () => {
-  const firstOperand = getRandomNumber(1, 99);
-  const secondOperand = getRandomNumber(1, 99);
-  const operator = getRandomOperation();
-  console.log(`Question: ${firstOperand} ${operator} ${secondOperand}`);
-  switch (operator) {
-    case '+':
-      return firstOperand + secondOperand;
-    case '-':
-      return firstOperand - secondOperand;
-    default: // case '*'
-      return firstOperand * secondOperand;
-  }
+const resolveExpr = (firstNum, secNum, operation) => {
+  if (operation === '+') return firstNum + secNum;
+  if (operation === '-') return firstNum - secNum;
+  return firstNum * secNum; // operation === '*'
 };
 
-// playRoundCalc
+// runCalcGame
 export default () => {
-  const correctAnswer = String(showAndCalcRandomExpr());
-  const userAnswer = readlineSync.question('Your answer: ');
-  return userAnswer === correctAnswer ? sayCorrect() : sayWrong(userAnswer, correctAnswer);
+  const gameRules = 'What is the result of the expression?';
+  const makeQuestion = () => {
+    const firstOperand = getRandomNumber(1, 99);
+    const secondOperand = getRandomNumber(1, 99);
+    const operator = getRandomOperation();
+    const question = `${firstOperand} ${operator} ${secondOperand}`;
+    const answer = String(resolveExpr(firstOperand, secondOperand, operator));
+    return cons(question, answer);
+  };
+  runGame(gameRules, makeQuestion);
 };
