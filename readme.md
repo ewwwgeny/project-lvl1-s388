@@ -16,3 +16,7 @@ $ brain-even <br>
 Run brain-calc game:<br>
 $ brain-calc <br>
 [![asciicast](https://asciinema.org/a/aLCjZkvn2qqREWrmxCaq4GkKC.svg)](https://asciinema.org/a/aLCjZkvn2qqREWrmxCaq4GkKC)
+
+Run brain-gcd game:<br>
+$ brain-gcd <br>
+[![asciicast](https://asciinema.org/a/MY7n1yVmo14qOwEKJzUf5GDOh.svg)](https://asciinema.org/a/MY7n1yVmo14qOwEKJzUf5GDOh)
