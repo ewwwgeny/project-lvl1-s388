@@ -24,7 +24,7 @@ const showAndCalcRandomExpr = () => {
 
 // playRoundCalc
 export default () => {
-  const correctAnswer = showAndCalcRandomExpr();
-  const userAnswer = Number(readlineSync.question('Your answer: '));
+  const correctAnswer = String(showAndCalcRandomExpr());
+  const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer === correctAnswer ? sayCorrect() : sayWrong(userAnswer, correctAnswer);
 };
