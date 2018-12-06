@@ -24,3 +24,7 @@ $ brain-gcd <br>
 Run brain-progression game:<br>
 $ brain-progression <br>
 [![asciicast](https://asciinema.org/a/ARxqJ39lgmywUi9xb150MV9Br.svg)](https://asciinema.org/a/ARxqJ39lgmywUi9xb150MV9Br)
+
+Run brain-prime game:<br>
+$ brain-prime <br>
+[![asciicast](https://asciinema.org/a/Ew5Mt0NwuL1jpV8oDBcKxWwEb.svg)](https://asciinema.org/a/Ew5Mt0NwuL1jpV8oDBcKxWwEb)
