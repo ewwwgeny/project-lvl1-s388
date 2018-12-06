@@ -10,9 +10,9 @@ const greetUser = () => {
 };
 
 // runGame
-export default (gameRules, makeQuestionPair) => {
+export default (description, makeQuestionPair) => {
   console.log('Welcome to the Brain Games!');
-  console.log(gameRules);
+  console.log(description);
   const userName = greetUser();
   for (let i = 1; i <= roundsCount; i += 1) {
     const questionPair = makeQuestionPair();
