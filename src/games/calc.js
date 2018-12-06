@@ -1,19 +1,27 @@
-import { getRandomNumber, runGame } from '..';
+import runGame from '..';
+import getRandomNumber from '../utils';
 import { cons } from 'hexlet-pairs';
+
+const gameDescription = 'What is the result of the expression?';
 
 const getRandomOperation = () => {
   const possibleOps = '+-*';
-  return possibleOps[Math.floor(Math.random() * possibleOps.length)];
+  return possibleOps[getRandomNumber(0, possibleOps.length - 1)];
 };
+
 const resolveExpr = (firstNum, secNum, operation) => {
-  if (operation === '+') return firstNum + secNum;
-  if (operation === '-') return firstNum - secNum;
-  return firstNum * secNum; // operation === '*'
+  switch (operation) {
+    case '+':
+      return firstNum + secNum;
+    case '-':
+      return firstNum - secNum;
+    default: // case '*'
+      return firstNum * secNum;
+  }
 };
 
 // runCalcGame
 export default () => {
-  const gameRules = 'What is the result of the expression?';
   const makeQuestion = () => {
     const firstOperand = getRandomNumber(1, 99);
     const secondOperand = getRandomNumber(1, 99);
@@ -22,5 +30,5 @@ export default () => {
     const answer = String(resolveExpr(firstOperand, secondOperand, operator));
     return cons(question, answer);
   };
-  runGame(gameRules, makeQuestion);
+  runGame(gameDescription, makeQuestion);
 };
