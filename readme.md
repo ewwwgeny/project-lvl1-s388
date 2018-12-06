@@ -20,3 +20,7 @@ $ brain-calc <br>
 Run brain-gcd game:<br>
 $ brain-gcd <br>
 [![asciicast](https://asciinema.org/a/MY7n1yVmo14qOwEKJzUf5GDOh.svg)](https://asciinema.org/a/MY7n1yVmo14qOwEKJzUf5GDOh)
+
+Run brain-progression game:<br>
+$ brain-progression <br>
+[![asciicast](https://asciinema.org/a/ARxqJ39lgmywUi9xb150MV9Br.svg)](https://asciinema.org/a/ARxqJ39lgmywUi9xb150MV9Br)
