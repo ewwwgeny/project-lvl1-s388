@@ -11,22 +11,21 @@ const getRandomTerm = (firstTerm, prgrssnStep) => {
   return firstTerm + (prgrssnStep * (randomTermNumber - 1));
 };
 
-// runProgressionGame
-export default () => {
-  const makeQuestion = () => {
-    const progressionStart = getRandomNumber(1, 30);
-    const progressionStep = getRandomNumber(2, 12);
-    const progressionEnd = progressionStart + (progressionStep * (progressionLength - 1));
-    const termToMask = getRandomTerm(progressionStart, progressionStep);
-    let result = '';
-    for (let i = progressionStart; i <= progressionEnd; i += progressionStep) {
-      if (i === progressionEnd) {
-        result += i === termToMask ? '..' : `${i}`; // without space after last term
-      } else {
-        result += i === termToMask ? '.. ' : `${i} `;
-      }
+const makeQuestion = () => {
+  const firstTerm = getRandomNumber(1, 30);
+  const step = getRandomNumber(2, 12);
+  const endTerm = firstTerm + (step * (progressionLength - 1));
+  const termToMask = getRandomTerm(firstTerm, step);
+  let result = '';
+  for (let i = firstTerm; i <= endTerm; i += step) {
+    if (i === endTerm) {
+      result += i === termToMask ? '..' : `${i}`; // without space after last term
+    } else {
+      result += i === termToMask ? '.. ' : `${i} `;
     }
-    return cons(result, String(termToMask));
-  };
-  runGame(gameDescription, makeQuestion);
+  }
+  return cons(result, String(termToMask));
 };
+
+// runProgressionGame
+export default () => runGame(gameDescription, makeQuestion);

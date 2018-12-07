@@ -12,12 +12,11 @@ const isPrime = (number) => {
   return true;
 };
 
-// runPrimeGame
-export default () => {
-  const makeQuestion = () => {
-    const question = getRandomNumber(1, 99);
-    const answer = isPrime(question) ? 'yes' : 'no';
-    return cons(question, answer);
-  };
-  runGame(gameDescription, makeQuestion);
+const makeQuestion = () => {
+  const question = getRandomNumber(1, 99);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return cons(question, answer);
 };
+
+// runPrimeGame
+export default () => runGame(gameDescription, makeQuestion);

@@ -9,14 +9,13 @@ const findGCD = (number1, number2) => {
   return findGCD(number2, number1 % number2);
 };
 
-// runGcdGame
-export default () => {
-  const makeQuestion = () => {
-    const firstNumber = getRandomNumber(1, 99);
-    const secondNumber = getRandomNumber(1, 99);
-    const question = `${firstNumber} ${secondNumber}`;
-    const answer = String(findGCD(firstNumber, secondNumber));
-    return cons(question, answer);
-  };
-  runGame(gameDescription, makeQuestion);
+const makeQuestion = () => {
+  const firstNumber = getRandomNumber(1, 99);
+  const secondNumber = getRandomNumber(1, 99);
+  const question = `${firstNumber} ${secondNumber}`;
+  const answer = String(findGCD(firstNumber, secondNumber));
+  return cons(question, answer);
 };
+
+// runGcdGame
+export default () => runGame(gameDescription, makeQuestion);

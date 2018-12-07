@@ -20,15 +20,14 @@ const resolveExpr = (firstNum, secNum, operation) => {
   }
 };
 
-// runCalcGame
-export default () => {
-  const makeQuestion = () => {
-    const firstOperand = getRandomNumber(1, 99);
-    const secondOperand = getRandomNumber(1, 99);
-    const operator = getRandomOperation();
-    const question = `${firstOperand} ${operator} ${secondOperand}`;
-    const answer = String(resolveExpr(firstOperand, secondOperand, operator));
-    return cons(question, answer);
-  };
-  runGame(gameDescription, makeQuestion);
+const makeQuestion = () => {
+  const firstOperand = getRandomNumber(1, 99);
+  const secondOperand = getRandomNumber(1, 99);
+  const operator = getRandomOperation();
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
+  const answer = String(resolveExpr(firstOperand, secondOperand, operator));
+  return cons(question, answer);
 };
+
+// runCalcGame
+export default () => runGame(gameDescription, makeQuestion);
